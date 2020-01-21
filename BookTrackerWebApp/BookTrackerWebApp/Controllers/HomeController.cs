@@ -17,6 +17,8 @@ namespace BookTrackerWebApp.Controllers
         [HttpPost]
         public IActionResult AddBook(Book book)
         {
+            string year = Request.Form["Year"];
+            book.Year = Convert.ToDateTime(year);
             repository.AddBook(book);
             return RedirectToAction(nameof(Index));
         }

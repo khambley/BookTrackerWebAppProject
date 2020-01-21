@@ -65,22 +65,22 @@
     {
         @foreach (Book b in Model)
         {
-        <div class="row">
+        
             <div class="media">
                 <img src="https://via.placeholder.com/150" class="align-self-start mr-3" alt="Alt text">
 
                 <div class="media-body">
                     <h5 class="mt-0">@b.Title</h5>
-                    <p>by @b.Author</p>
-                    <p>Category: @b.Category</p>
-                    <p>Series: @b.SeriesName</p>
-                    <p>Book #: @b.SeriesBookNum</p>
-                    <p>Series Timeline: @b.SeriesTimeline</p>
-                    <p>@b.Synopsis</p>
-                    <p>@b.Year</p>
+                    by @b.Author<br />
+                    Category: @b.Category<br />
+                    Series: @b.SeriesName<br />
+                    Book #: @b.SeriesBookNum<br />
+                    Series Timeline: @b.SeriesTimeline<br />
+                    Synopsis: @b.Synopsis<br />
+                    Year: @b.Year.ToString("yyyy")<br />
                 </div>
             </div>
-        </div>
+        
         }
     }
 </div>
