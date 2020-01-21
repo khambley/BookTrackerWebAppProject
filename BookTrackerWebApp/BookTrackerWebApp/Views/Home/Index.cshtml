@@ -1,72 +1,60 @@
 ﻿@using BookTrackerWebApp.Models
 @model IEnumerable<Book>
 
+<h3 class="p-2 bg-primary text-white text-center">My Books</h3>
 <div class="container mt-3">
     <div class="row">
         <div class="col-md-4">
-            <form asp-action="AddBook">
+            <h3>Add Book</h3>
+            <form asp-action="AddBook" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Title" class="control-label"></label>
+                    @*<label asp-for="Title" class="control-label"></label>
                     <input asp-for="Title" class="form-control" />
-                    <span asp-validation-for="Title" class="text-danger"></span>
+                    <span asp-validation-for="Title" class="text-danger"></span>*@
+                    <label for="Title">Title</label>
+                    <input name="Title" class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="Author" class="control-label"></label>
-                    <input asp-for="Author" class="form-control" />
-                    <span asp-validation-for="Author" class="text-danger"></span>
+                    <label for="Author">Author</label>
+                    <input name="Author" class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="Category" class="control-label"></label>
-                    <input asp-for="Category" class="form-control" />
-                    <span asp-validation-for="Category" class="text-danger"></span>
+                    <label for="Category">Category</label>
+                    <input name="Category" class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="SeriesName" class="control-label"></label>
-                    <input asp-for="SeriesName" class="form-control" />
-                    <span asp-validation-for="SeriesName" class="text-danger"></span>
+                    <label for="SeriesName">Series Name</label>
+                    <input name="SeriesName" class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="SeriesBookNum" class="control-label"></label>
-                    <input asp-for="SeriesBookNum" class="form-control" />
-                    <span asp-validation-for="SeriesBookNum" class="text-danger"></span>
+                    <label for="SeriesBookNum">Series Book #</label>
+                    <input name="SeriesBookNum" class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="SeriesTimeline" class="control-label"></label>
-                    <input asp-for="SeriesTimeline" class="form-control" />
-                    <span asp-validation-for="SeriesTimeline" class="text-danger"></span>
+                    <label for="SeriesTimeline">Series Timeline</label>
+                    <input name="SeriesTimeline" class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="ImageUrl" class="control-label"></label>
-                    <input asp-for="ImageUrl" class="form-control" />
-                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                    <label for="ImageUrl">ImageUrl</label>
+                    <input name="ImageUrl" class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="Synopsis" class="control-label"></label>
-                    <input asp-for="Synopsis" class="form-control" />
-                    <span asp-validation-for="Synopsis" class="text-danger"></span>
+                    <label for="Synopsis">Synopsis</label>
+                    <input name="Synopsis" class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="Year" class="control-label"></label>
-                    <input asp-for="Year" class="form-control" />
-                    <span asp-validation-for="Year" class="text-danger"></span>
+                    <label for="Year">Year</label>
+                    <input name="Year" class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="Publisher" class="control-label"></label>
-                    <input asp-for="Publisher" class="form-control" />
-                    <span asp-validation-for="Publisher" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Notes" class="control-label"></label>
-                    <input asp-for="Notes" class="form-control" />
-                    <span asp-validation-for="Notes" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <button type="submit" class="btn btn-primary">Add</button>
                 </div>
             </form>
         </div>
     </div>
+    <hr />
+    <h3>My Books List</h3>
     @if (Model.Count() == 0)
     {
         <div class="row">
@@ -84,10 +72,12 @@
                 <div class="media-body">
                     <h5 class="mt-0">@b.Title</h5>
                     <p>by @b.Author</p>
+                    <p>Category: @b.Category</p>
                     <p>Series: @b.SeriesName</p>
                     <p>Book #: @b.SeriesBookNum</p>
                     <p>Series Timeline: @b.SeriesTimeline</p>
                     <p>@b.Synopsis</p>
+                    <p>@b.Year</p>
                 </div>
             </div>
         </div>
