@@ -12,6 +12,6 @@ namespace BookTrackerWebApp.Models
 
         public DbSet<Book> Books { get; set; }
 
-        }
     }
 }
+

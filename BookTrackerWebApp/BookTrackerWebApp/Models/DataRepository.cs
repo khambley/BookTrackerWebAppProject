@@ -7,13 +7,17 @@ namespace BookTrackerWebApp.Models
 {
     public class DataRepository : IRepository
     {
-        private List<Book> data = new List<Book>();
+        //private List<Book> data = new List<Book>();
+        private DataContext context;
 
-        public IEnumerable<Book> Books => data;
+        public DataRepository(DataContext ctx) => context = ctx;
+
+        public IEnumerable<Book> Books => context.Books;
 
         public void AddBook(Book book)
         {
-            this.data.Add(book);
+            this.context.Books.Add(book);
+            this.context.SaveChanges();
         }
      }
 }
