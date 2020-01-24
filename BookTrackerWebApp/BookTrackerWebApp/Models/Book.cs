@@ -18,6 +18,9 @@ namespace BookTrackerWebApp.Models
         public string Synopsis { get; set; }
         public DateTime Year { get; set; }
         public string Publisher { get; set; }
+        public decimal PurchasePrice { get; set; }
+        public decimal RetailPrice { get; set; }
+
         public string Notes { get; set; }
     }
 }
